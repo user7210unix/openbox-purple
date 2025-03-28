@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💜 Openbox Dotfiles</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Linux Openbox Dotfiles <span class="heart">💜</span></h1>
+        </header>
+        <main>
+            <div class="image-container">
+                <img src="assets/images/image.png" alt="Openbox Setup Screenshot" onclick="openImageViewer()">
+            </div>
+            <div class="description">
+                <p>My Linux Openbox dotfiles for a minimal setup. Download and customize!</p>
+            </div>
+            <div class="download-button">
+                <a href="https://github.com/user7210unix/openbox-purple/releases/download/1.0/dots.zip" download>Download Dotfiles</a>
+            </div>
+            <div class="github-link">
+                <a href="https://github.com/user7210unix" target="_blank">
+                    <img src="assets/images/logo.png" alt="GitHub Logo" class="github-logo">
+                    <span>user7210unix</span>
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <!-- Image Viewer Overlay -->
+    <div class="image-viewer" id="imageViewer">
+        <div class="image-viewer-content">
+            <img src="assets/images/image.png" alt="Openbox Setup Screenshot" id="viewerImage">
+            <button class="close-button" onclick="closeImageViewer()">✕ <span class="heart">💜</span></button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

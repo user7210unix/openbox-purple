@@ -1,0 +1,241 @@
+/* Import the custom font */
+@font-face {
+    font-family: 'AzukiFont';
+    src: url('assets/fonts/azukifontB.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling with the light grayish-blue background */
+body {
+    background-color: #c2c8d5; /* Light grayish-blue background */
+    font-family: 'AzukiFont', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Container with a white card-like design */
+.container {
+    max-width: 500px; /* More compact width */
+    width: 100%;
+    background-color: #ffffff; /* White card */
+    border-radius: 20px; /* More rounded corners for a cute look */
+    padding: 25px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    animation: float 3s ease-in-out infinite; /* Floating animation */
+}
+
+/* Floating animation for the card */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Header styling with a cute heart */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2.5rem; /* Larger font */
+    color: #c2c8d5; /* Light grayish-blue text */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+header .heart {
+    font-size: 1.5rem;
+    display: inline-block;
+    animation: heartbeat 1.5s ease-in-out infinite; /* Heartbeat animation */
+}
+
+/* Heartbeat animation for the heart */
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* Image container */
+.image-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px; /* Rounded corners */
+    border: 3px solid #c2c8d5; /* Light grayish-blue border */
+    transition: transform 0.3s ease;
+    cursor: pointer; /* Indicate the image is clickable */
+}
+
+.image-container img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Description styling */
+.description {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.description p {
+    font-size: 1.8rem; /* Larger font size */
+    line-height: 1.4;
+    color: #c2c8d5; /* Light grayish-blue text */
+}
+
+/* Download button styling */
+.download-button {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.download-button a {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #c2c8d5; /* Light grayish-blue button */
+    color: #ffffff; /* White text */
+    text-decoration: none;
+    font-size: 1.5rem; /* Larger font */
+    border-radius: 25px; /* More rounded for a cute look */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Animation for the download button */
+.download-button a:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    animation: pulse 1.5s infinite;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* GitHub Link Styling */
+.github-link {
+    text-align: center;
+}
+
+.github-link a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #c2c8d5;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.github-link a:hover {
+    transform: scale(1.05);
+}
+
+.github-logo {
+    width: 24px;
+    height: 24px;
+}
+
+/* Image Viewer Overlay */
+.image-viewer {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Smooth fade for the overlay */
+}
+
+.image-viewer.active {
+    display: flex;
+    opacity: 1;
+}
+
+.image-viewer-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.image-viewer-content img {
+    max-width: 100%;
+    max-height: 80vh; /* Limit height to fit screen */
+    border-radius: 15px;
+    border: 3px solid #c2c8d5; /* Light grayish-blue border */
+    transform: scale(0.5); /* Start small for zoom-in */
+    transition: transform 0.3s ease; /* Smooth zoom animation */
+}
+
+.image-viewer.active .image-viewer-content img {
+    transform: scale(1); /* Zoom in when active */
+}
+
+/* Cute Close Button with Material Web X */
+.close-button {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background-color: #c2c8d5; /* Light grayish-blue */
+    color: #ffffff; /* White text */
+    border: none;
+    border-radius: 50%; /* Circular button */
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.close-button .heart {
+    font-size: 0.8rem;
+    margin-left: 2px;
+}
+
+.close-button:hover {
+    transform: scale(1.1);
+    animation: heartbeat 1.5s ease-in-out infinite; /* Heartbeat animation on hover */
+}
